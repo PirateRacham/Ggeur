@@ -4,17 +4,17 @@ package com.example.ggeur;
 import java.util.ArrayList;
 import java.util.List;
 
-public class timeLeft implements IObserverable{
+public class TimeLeft implements IObserverable{
 
     private List<IObserver> observers;
     private long timeleft = 0;
-    public timeLeft(){
-        observers = new ArrayList<IObserver>();
+    TimeLeft(){
+        observers = new ArrayList<>();
     }
-    public long getTimeleft(){
+    long getTimeleft(){
         return timeleft;
     }
-    public void setTimeleft(long value){
+    void setTimeleft(long value){
         this.timeleft = value;
         this.notifyObservers();
     }

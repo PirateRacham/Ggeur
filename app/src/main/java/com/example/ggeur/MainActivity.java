@@ -2,17 +2,14 @@ package com.example.ggeur;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.IntentSender;
 import android.os.Bundle;
-import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements IObserver{
-    TextView countDown;
-    int time;
-    Timer timer = null;
-    EggPresenter presenter;
+    private TextView countDown;
+    private int time;
+    private EggPresenter presenter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,7 +35,7 @@ public class MainActivity extends AppCompatActivity implements IObserver{
         findViewById(R.id.buttonStart).setEnabled(true);
     }
 
-    public void onButtonStartClicked(View view) {
+    public void onButtonStartClicked() {
         findViewById(R.id.buttonStart).setEnabled(false);
         presenter.startTimer(time * 1000);
     }

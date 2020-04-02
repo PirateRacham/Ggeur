@@ -7,16 +7,15 @@ import java.util.List;
 
 public class EggPresenter implements IObserver, IObserverable{
     private List<IObserver> observers;
-    private timeLeft timeleft;
+    private TimeLeft timeleft;
     private Timer timer;
-    private View countdown;
-    public EggPresenter(){
-        timer = new Timer(timeleft = new timeLeft());
+    EggPresenter(){
+        timer = new Timer(timeleft = new TimeLeft());
         timeleft.addObserver(this);
-        observers = new ArrayList<IObserver>();
+        observers = new ArrayList<>();
     }
-    public void startTimer(int time){
-        timer.countDownStart(time);
+    void startTimer(int time){
+        timer.Start(time);
     }
 
     @Override

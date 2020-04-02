@@ -2,26 +2,34 @@ package com.example.ggeur;
 
 import android.os.CountDownTimer;
 
-public class Timer {
-    private CountDownTimer timer = null;
-    private timeLeft timeLeft;
-    public Timer(timeLeft timeLeft){
+public class Timer{
+    private CountDownTimer counttimer;
+    private TimeLeft timeLeft;
+    private ITimerState currentState;
+
+    public Timer(TimeLeft timeLeft){
         this.timeLeft = timeLeft;
-    };
-    public void countDownStart(int time) {
-        if(timer != null)
-            cancelTimer();
-        timer = new CountDownTimer(time, 1000) {
-            public void onTick(long millisUntilFinished){
-                timeLeft.setTimeleft(millisUntilFinished / 1000);
-            }
-            public void onFinish() {
-                cancelTimer();
-            }
-        }.start();
+        currentState = new TimerStoppedState(this);
+    }
+    TimeLeft getTimeLeft(){
+        return timeLeft;
+    }
+    void setCounttimer(CountDownTimer countDownTimer){
+        counttimer = countDownTimer;
+    }
+    void counttimerCancel(){
+        counttimer.cancel();
+    }
+    public void Start(int time) {
+        currentState.Start(time);
     }
 
-    void cancelTimer() {
-        timer.cancel();
+    public void stop() {
+        currentState.stop();
     }
+
+    void changeState(ITimerState state){
+        currentState = state;
+    }
+
 }
