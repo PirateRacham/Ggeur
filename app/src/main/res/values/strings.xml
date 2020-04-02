@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Ggeur</string>
-    <string name="buttonBlødkogte">Blødkogt</string>
-    <string name="buttonKogte">kogt</string>
-    <string name="buttonHårdkogte">hårdkogt</string>
+    <string name="buttonSoftboiled">softBoiled</string>
+    <string name="buttonBoiled">Boiled</string>
+    <string name="buttonHardboiled">hardBoiled</string>
     <string name="buttonStart">Start</string>
 </resources>
